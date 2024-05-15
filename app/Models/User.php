@@ -24,6 +24,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected $appends = [
+        'fullname',
+    ];
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -59,5 +63,13 @@ class User extends Authenticatable
         return $this->whereDoesntHave('roles', function ($query) {
             $query->where('name', config('roles.default.superadmin.name'));
         });
+    }
+
+    /**
+     * Get the user's full name.
+     */
+    public function getFullnameAttribute()
+    {
+        return "{$this->firstname} {$this->lastname}";
     }
 }

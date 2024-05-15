@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     /**
+     * Get the authenticated user.
+     */
+    public function getAuthUser()
+    {
+        $user = auth()->user()->load('roles');
+
+        return response()->json($user);
+    }
+
+    /**
      * Authenticate a user.
      */
     public function login(LoginRequest $request)
