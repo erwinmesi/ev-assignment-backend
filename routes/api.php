@@ -21,6 +21,10 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::prefix('auth')->group(function () {
+        Route::delete('logout', [AuthController::class, 'logout']);
+    });
+
     Route::resource('roles', RoleController::class)
         ->except(['create', 'edit']);
 

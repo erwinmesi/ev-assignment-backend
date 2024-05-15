@@ -27,4 +27,15 @@ class AuthController extends Controller
 
         return response(compact('access_token'));
     }
+
+    /**
+     * Logout the authenticated user.
+     */
+    public function logout()
+    {
+        // Revoke the user's current token
+        auth()->user()->currentAccessToken()->delete();
+
+        return response(['message' => 'Logged out']);
+    }
 }
