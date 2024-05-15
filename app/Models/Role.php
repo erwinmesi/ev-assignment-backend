@@ -13,4 +13,12 @@ class Role extends Model
         'name',
         'description',
     ];
+
+    /**
+     * Prevent the user with `superadmin` role from being queried.
+     */
+    public function scopeExceptSuperAdmin($query)
+    {
+        return $query->where('name', '!=', config('roles.default.superadmin.name'));
+    }
 }

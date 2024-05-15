@@ -58,4 +58,14 @@ class User extends Authenticatable
     {
         return $this->hasManyThrough(Role::class, UserRole::class);
     }
+
+    /**
+     * Prevent the user with `superadmin` role from being queried.
+     */
+    public function scopeExceptSuperAdmin()
+    {
+        return $this->whereHas('roles', function ($query) {
+            $query->where('name', '!=', config('roles.default.super_admin.name'));
+        });
+    }
 }
