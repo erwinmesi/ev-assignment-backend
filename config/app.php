@@ -58,6 +58,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Default Admin Credentials
+    |--------------------------------------------------------------------------
+    |
+    | This value is the default admin credentials for the application.
+    |
+    */
+
+    'superadmin' => [
+        'email' => env('DEFAULT_USER_EMAIL', 'su@eastvantage.com'),
+        'password' => env('DEFAULT_USER_PASSWORD', 'P@$$w0rd123'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |

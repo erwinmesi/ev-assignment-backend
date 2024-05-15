@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // Seed the roles first because the `UsersSeeder` needs the `superamin` role.
+        $this->call(RolesSeeder::class);
+
+        // Then seed the Users
+        $this->call(UsersSeeder::class);
     }
 }

@@ -61,3 +61,16 @@ Exit out of the `db` container:
 ```
 exit
 ```
+
+### Migrate migrations and seeders
+```
+php artisan migrate --seed
+```
+
+## Default Super Admin Credentials
+
+Kindly view the `.env` for the default Super Admin credentials:
+```
+DEFAULT_USER_EMAIL=
+DEFAULT_USER_PASSWORD=
+```
