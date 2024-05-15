@@ -6,7 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class UsersSeeder extends Seeder
+class SuperAdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -32,9 +32,7 @@ class UsersSeeder extends Seeder
             $superAdminRole = Role::where('name', config('roles.default.superadmin.name'))->first();
 
             // Assign Super Admin Role to Super Admin
-            $superAdmin->userRoles()->create([
-                'role_id' => $superAdminRole->id,
-            ]);
+            $superAdmin->roles()->attach($superAdminRole->id);
         }
     }
 }

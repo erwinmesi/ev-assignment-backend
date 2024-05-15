@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Seed the roles first because the `UsersSeeder` needs the `superamin` role.
+        // Seed the roles first because the `SuperAdminSeeder` needs the `superamin` role.
         $this->call(RolesSeeder::class);
 
-        // Then seed the Users
-        $this->call(UsersSeeder::class);
+        // Then seed the Super Admin
+        $this->call(SuperAdminSeeder::class);
     }
 }
