@@ -15,7 +15,7 @@ class RoleController extends Controller
     public function index()
     {
         $users = Role::exceptSuperAdmin()
-            ->orderBy('name', 'desc')
+            ->orderBy('name', 'asc')
             ->get();
 
         return response()->json($users);
