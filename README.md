@@ -12,7 +12,12 @@ docker compose -p ev_assignment up --build -d
 ### Copy .env.example into .env
 cp .env.example .env
 
-Replace:
+Generate an Application Key:
+```
+php artisan key:generate
+```
+
+Then replace:
 ```
 DB_HOST=127.0.0.1
 DB_DATABASE=laravel
