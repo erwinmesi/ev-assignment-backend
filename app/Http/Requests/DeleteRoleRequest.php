@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\DisableSuperadminModificationRule;
+use App\Rules\DisableSuperadminRoleModificationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DeleteRoleRequest extends FormRequest
@@ -36,7 +36,7 @@ class DeleteRoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => new DisableSuperadminModificationRule($this->role->name)
+            'name' => new DisableSuperadminRoleModificationRule($this->role->name)
         ];
     }
 }

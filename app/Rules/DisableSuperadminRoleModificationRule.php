@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Rule;
 /**
  * Disable the editing or deleting of the superadmin role.
  */
-class DisableSuperadminModificationRule implements Rule
+class DisableSuperadminRoleModificationRule implements Rule
 {
     private $roleToEdit;
 

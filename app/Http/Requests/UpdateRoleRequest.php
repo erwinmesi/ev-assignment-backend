@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\DisableSuperadminModificationRule;
+use App\Rules\DisableSuperadminRoleModificationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateRoleRequest extends FormRequest
@@ -26,7 +26,7 @@ class UpdateRoleRequest extends FormRequest
     {
         return [
             'name' => [
-                new DisableSuperadminModificationRule($this->role->name),
+                new DisableSuperadminRoleModificationRule($this->role->name),
                 'required',
                 'string',
                 'max:255',
