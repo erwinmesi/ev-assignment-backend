@@ -44,19 +44,11 @@ class User extends Authenticatable
     ];
 
     /**
-     * User Roles associated with the user.
-     */
-    public function userRoles()
-    {
-        return $this->hasMany(UserRole::class);
-    }
-
-    /**
      * Roles associated with the user.
      */
     public function roles()
     {
-        return $this->hasManyThrough(Role::class, UserRole::class);
+        return $this->belongsToMany(Role::class, UserRole::class);
     }
 
     /**
@@ -64,8 +56,8 @@ class User extends Authenticatable
      */
     public function scopeExceptSuperAdmin()
     {
-        return $this->whereHas('roles', function ($query) {
-            $query->where('name', '!=', config('roles.default.super_admin.name'));
+        return $this->whereDoesntHave('roles', function ($query) {
+            $query->where('name', config('roles.default.superadmin.name'));
         });
     }
 }
