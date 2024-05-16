@@ -10,7 +10,9 @@ docker compose -p ev_assignment up --build -d
 ```
 
 ### Copy .env.example into .env
+```
 cp .env.example .env
+```
 
 Generate an Application Key:
 ```
