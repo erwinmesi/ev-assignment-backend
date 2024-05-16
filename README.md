@@ -82,6 +82,15 @@ exit
 ```
 
 ### Migrate migrations and seeders
+
+Go back into the terminal window where you're running `laravel` container.  
+
+If you already closed it, just interact with it again using:
+```
+docker exec -it ev_assignment_laravel sh
+```
+
+Then run:
 ```
 php artisan migrate --seed
 ```
@@ -93,3 +102,5 @@ Kindly view the `.env` for the default Super Admin credentials:
 DEFAULT_USER_EMAIL=
 DEFAULT_USER_PASSWORD=
 ```
+
+You will use that credential to login into the React frontend.
