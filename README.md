@@ -9,7 +9,17 @@ This project is part of the requirements for my, Erwin Mesias, application as Fu
 docker compose -p ev_assignment up --build -d
 ```
 
-### Copy .env.example into .env
+Go inside the Laravel Container
+```
+docker exec -it ev_assignment_laravel sh
+```
+
+Install project dependencies
+```
+composer install
+```
+
+Copy .env.example into .env
 ```
 cp .env.example .env
 ```
@@ -19,7 +29,8 @@ Generate an Application Key:
 php artisan key:generate
 ```
 
-Then replace:
+### Prepare DB Connection
+In the `.env`, replace:
 ```
 DB_HOST=127.0.0.1
 DB_DATABASE=laravel
@@ -37,7 +48,8 @@ DB_PASSWORD=secret
 
 ### Create `local_ev_assignment` Database
 
-Interact with the `db` container
+Interact with the `db` container.  
+Open a new terminal window and run:
 
 ```
 docker exec -it ev_assignment_db bash
