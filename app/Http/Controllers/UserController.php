@@ -16,8 +16,14 @@ class UserController extends Controller
     public function index()
     {
         $users = User::exceptSuperAdmin()
+            ->when(request('role_id'), function ($query, $role_id) {
+                return $query->whereHas('roles', function ($query) use ($role_id) {
+                    $query->where('roles.id', $role_id);
+                });
+            })
+            ->with('roles:id,name')
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->get();
 
         return response()->json($users);
     }
