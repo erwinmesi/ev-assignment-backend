@@ -95,6 +95,11 @@ Then run:
 php artisan migrate --seed
 ```
 
+That's it, you can now exit out of the `laravel` container:
+```
+exit
+```
+
 ## Default Super Admin Credentials
 
 Kindly view the `.env` for the default Super Admin credentials:
